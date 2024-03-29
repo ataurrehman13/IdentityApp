@@ -19,9 +19,26 @@ setx SECRET "CodeMazeSecretKey" /M
 ```
 
 ### Setup Project
----
+#### Setup Git with Project
+```bash
+# Create .gitignore file by running below command:
+dotnet new gitignore
 
-##### 0. Create, Build & Run Project
+# Initialize Git, make sure you have created a blank git repository
+git init
+git add .
+git commit -m "Api project created"
+git branch -M main
+git remote add origin https://github.com/ataurrehman13/IdentityApp.git
+git push -u origin main
+
+```
+
+#### 0.1 Configure Git With Project
+
+
+
+##### 0.2 Create, Build & Run Project
 
 ```dotnet
 
@@ -57,20 +74,14 @@ func watch
 
 ```dotnet
 // Install below packages for this project
-dotnet add package Microsoft.AspNetCore.Identity.EntityFrameworkCore --version 8.0.0
-dotnet add package Microsoft.EntityFrameworkCore.SqlServer --version 8.0.0
-dotnet add package Microsoft.EntityFrameworkCore.Tools --version 8.0.0
 
+dotnet add package Microsoft.EntityFrameworkCore.Sqlite --version 8.0.3
+dotnet add package Microsoft.EntityFrameworkCore.SqlServer --version 8.0.3
+dotnet add package Microsoft.EntityFrameworkCore.Tools --version 8.0.3
+dotnet add package Microsoft.AspNetCore.Authentication.JwtBearer --version 8.0.3
+dotnet add package System.IdentityModel.Tokens.Jwt --version 7.5.0
+dotnet add package Microsoft.AspNetCore.Identity.EntityFrameworkCore --version 8.0.3
 
-dotnet add package NLog.Extensions.Logging --version 5.2.3
-dotnet add package Microsoft.EntityFrameworkCore --version 7.0.2
-dotnet add package Microsoft.EntityFrameworkCore.SqlServer --version 7.0.2
-dotnet add package Microsoft.EntityFrameworkCore.Tools --version 7.0.2
-
-// below packages are not required for this project
-dotnet add package Microsoft.EntityFrameworkCore.Design --version 7.0.2
-dotnet add package Microsoft.EntityFrameworkCore.InMemory --version 7.0.2
-dotnet add package AutoMapper.Extensions.Microsoft.DependencyInjection
 ```
 
 ##### 3. Create Secrets
@@ -83,6 +94,11 @@ dotnet user-secrets set "UserId" "sa"
 ##### 3. Database Migrations
 
 ```dotnet
+# run database migration in Package Manager Console
+add-migration AddingUserToDatabase -o Data/Migrations
+update-database
+
+
 // Go to project CompanyEmployees80 and run below commands. Make sure
 // MS SQL Server Docker container is running.
 
@@ -235,7 +251,7 @@ uuidgen
     "balance": 0
 }
 ```
-##### Continue From page 326, section 29.2
+##### Continue from 1:15:07
 
 
 "ConnectionStrings": {
