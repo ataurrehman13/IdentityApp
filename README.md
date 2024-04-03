@@ -222,7 +222,7 @@ vscode-solution-explorer By Fernando Escolar
 ```
 
 ##### 8. Misc Commands
-```bash
+```
 # Generate New Guid in terminal by running below command
 
 uuidgen
@@ -251,7 +251,48 @@ uuidgen
     "balance": 0
 }
 ```
-##### Continue from 1:15:07
+
+---
+
+## Angular Client App
+
+### Misc. Angular Commands
+
+```bash
+
+# Create module, this will create module in new folder
+ng g m account 
+
+# Create module in the current folder and do not create new folder
+ng g m account-routing --flat
+
+# Create angular component under app folder
+ng g c navbar --skip-tests
+ng g c footer --skip-tests
+ng g c home --skip-tests
+
+# Create angular service
+ng g s account --skip-tests
+
+# Create component inside Account module
+ng g c login --skip-tests
+ng g c register --skip-tests
+
+
+
+```
+
+### Install themes
+
+1. Visit https://bootswatch.com/
+2. Select the theme and copy the name of the theme from that site
+3. Open angular.json file from project
+4. Add below line under the styles section and replace the theme name e.g. darkly in below case, in the path:
+    "./node_modules/bootswatch/dist/darkly/bootstrap.css",
+
+---
+
+##### Continue from 1:57:49
 
 
 "ConnectionStrings": {
